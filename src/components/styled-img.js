@@ -23,9 +23,11 @@ const styledImg = styled(({ ...props }) => {
   let imgPath = props.imgcol.filter((i, j) => {
     return i.match(regExp);
   });
-  return <img {...props} src={imgPath[0]} />;
+
+  return <img {...props} src={imgPath[0].replace(new RegExp(/^[\/]/), "")} />;
 })`
-  width: 20%;
+  max-width: 20%;
+  min-width: 20%;
 `;
 
 export default styledImg;

@@ -25,9 +25,11 @@ class DOB extends React.Component {
   };
   @action
   handleFormSubmit = e => {
-    this.props.store.addData({ name: this.name, dob: this.dob });
-    this.name = "";
-    this.dob = "";
+    if (this.name && this.dob) {
+      this.props.store.addData({ name: this.name, dob: this.dob });
+      this.name = "";
+      this.dob = "";
+    }
     e.preventDefault();
   };
 
